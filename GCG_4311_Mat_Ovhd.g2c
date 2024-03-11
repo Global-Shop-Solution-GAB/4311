@@ -1,0 +1,195 @@
+Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Caption("Material Overhead %")
+Gui.Form..Size(4380,6825)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.lbl1.Create(Label,"Material Overhead %",True,1635,255,0,210,375,True,0,"Arial",8,-2147483633,0)
+Gui.Form.txtovh.Create(TextBox,"",True,1215,300,0,210,615,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtovh.Event(LostFocus,txtovh_LostFocus)
+Gui.Form.lbl2.Create(Label,"Effective Date",True,1545,255,0,1965,375,True,0,"Arial",8,-2147483633,0)
+Gui.Form.dtpDate.Create(DatePicker)
+Gui.Form.dtpDate.Size(1935,285)
+Gui.Form.dtpDate.Position(1965,615)
+Gui.Form.GsGCovhd.Create(GsGridControl)
+Gui.Form.GsGCovhd.Size(3690,3735)
+Gui.Form.GsGCovhd.Position(195,1800)
+Gui.Form.cmdAdd.Create(Button)
+Gui.Form.cmdAdd.Size(855,375)
+Gui.Form.cmdAdd.Position(255,1155)
+Gui.Form.cmdAdd.Caption("Add")
+Gui.Form.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.Form.cmd1.Create(Button)
+Gui.Form.cmd1.Size(855,375)
+Gui.Form.cmd1.Position(255,5685)
+Gui.Form.cmd1.Caption("Delete")
+Gui.Form.cmd1.Event(Click,cmd1_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+'Created For Meco by Team SkyNet Passed Testing on 12/29/2016
+'This works with a core Project.  The GAB will just save values to the Hybrid Table.
+'Run from custom menu item.
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+F.ODBC.Connection!conx.OpenConnection(v.Ambient.PDSN, v.Ambient.PUser, v.Ambient.PPass)
+v.Local.sSql.Set("Select Eff_Date, Percentage, Filler From MATL_OVHD_RATE")
+F.Data.DataTable.CreateFromSQL("OverHead","conx", v.Local.sSql, True)
+F.Data.DataTable.AddExpressionColumn("OverHead", "PercentString","String", "Percentage+'%'")
+F.Data.DataTable.AddColumn("OverHead", "Delete", "Boolean",False)
+F.Data.DataView.Create("OverHead", "SortView",22,,"Eff_Date Asc")
+Gui.Form..Show
+F.Intrinsic.Control.CallSub(gridstyle)
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(form_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.cmdAdd_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdAdd_Click_Err")
+F.Intrinsic.Control.ClearErrors
+'Add the percentage and date to the DataTable.  the unload will update the Database.
+v.Local..BulkDeclareString(sOverhead, sPercent,sDate,sFilter,sError)
+v.Local.dDate.Declare(Date)
+v.Local.iRow.Declare(Long)
+v.Local.sDate.Set(v.Screen.Form!dtpDate.Value)
+v.Local.dDate.Set(v.Screen.Form!dtpDate.Value)
+F.Intrinsic.String.Build("Eff_Date = '{0} 12:00:00 AM'", v.Local.dDate, v.Local.sFilter)
+v.Local.sPercent.Set(v.Screen.Form!txtovh.Text)
+F.Intrinsic.String.Split(v.Local.sPercent, "%", v.Local.soverhead)
+F.Data.DataView.Create("OverHead", "DateView",22,v.Local.sFilter,"Eff_Date Asc")
+v.Local.iRow.Set(v.DataView.OverHead!DateView.RowCount)
+F.Data.DataView.Close("OverHead", "DateView")
+'Make sure the date does not already exist.
+F.Intrinsic.Control.If(v.Local.iRow, !=,0)
+	F.Intrinsic.UI.Msgbox("Duplicate Date", "Invalid Date")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.endif
+F.Data.DataTable.AddRow("OverHead", "Percentage", v.Local.sOverhead(0), "Eff_Date", v.Local.sDate)
+Gui.Form.txtovh.Text("")
+Gui.Form.txtovh.SetFocus
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdAdd_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdAdd_Click.End
+
+Program.Sub.Form_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("Form_UnLoad_Err")
+F.Intrinsic.Control.ClearErrors
+'Update the Database to mimic the Datatable. Close out of the program
+v.Local..BulkDeclareString(sMap, sKeyFields,sError)
+v.Local.sKeyFields.set("Percentage")
+v.Local.sMap.set("Eff_Date@!@Eff_Date*!*Percentage@!@Percentage")
+F.Data.DataTable.SaveToDB("OverHead","conx", "MATL_OVHD_RATE",v.Local.sKeyFields,7,v.Local.sMap)
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Form_UnLoad_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.txtovh_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("txtovh_LostFocus_Err")
+F.Intrinsic.Control.ClearErrors
+'On lost focus check to make sure a number has been entered or that the box is blank
+V.Local.sError.Declare(String)
+v.Local.sOverhead.Declare(String)
+v.Local.bNumber.Declare(Boolean, True)
+v.Local.sOverhead.Set(v.Screen.Form!txtovh.Text)
+F.Intrinsic.String.Split(v.Local.sOverhead, "%", v.Local.sOverhead)
+v.Local.sOverhead.RedimPreserve(0,1)
+F.Intrinsic.Math.IsNumeric(v.Local.sOverhead(0), v.Local.bNumber)
+F.Intrinsic.Control.If(v.Local.bNumber, =, False)
+	F.Intrinsic.Control.If(v.Local.sOverhead.Trim, !=, "")
+		F.Intrinsic.UI.Msgbox("The value entered is not Numeric!", "Invaild Value")
+		Gui.Form.txtovh.Text("")
+		Gui.Form.txtovh.SetFocus
+	F.Intrinsic.Control.Endif
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("txtovh_LostFocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(form_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtovh_LostFocus.End
+
+Program.Sub.GridStyle.Start
+F.Intrinsic.Control.SetErrorHandler("GridStyle_Err")
+F.Intrinsic.Control.ClearErrors
+'Set the Grid Properties
+V.Local.sError.Declare(String)
+Gui.Form.GsGCovhd.AddGridviewFromDataview("OverHeadView","OverHead","SortView")
+Gui.Form.GsGCovhd.MainView("OverHeadView")
+Gui.Form.GsGCovhd.SetGridViewProperty("OverHeadView","readonly",False)
+gui.Form.GsGCovhd.SetGridviewProperty("OverHeadView", "Editable", True)
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","Eff_Date","readonly","True")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","Eff_Date","AllowEdit","False")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","PercentString","readonly","True")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","PercentString","AllowEdit","False")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","Delete","readonly",False)
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","Delete","AllowEdit",True)
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "Eff_Date", "DisplayCustomDatetime", "d")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "Percentage", "Visible", "False")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "PercentString", "Caption", "Percentage")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "PercentString", "VisibleIndex", "0")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "Eff_Date", "Caption", "Date")
+Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "Filler", "Visible", "False")
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("GridStyle_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(form_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.GridStyle.End
+
+Program.Sub.cmd1_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd1_Click_Err")
+F.Intrinsic.Control.ClearErrors
+'Delete the selected rows from the Grid.  Unload will update the Database.
+v.Local..BulkDeclareString(sFilter,sSql,sError)
+v.Local.iCount.Declare(Long)
+v.Local.sFilter.Set("Delete = 'True'")
+F.Data.DataView.Create("OverHead", "DeleteView",22,v.Local.sFilter,"Eff_Date Asc")
+F.Intrinsic.Control.If(v.DataView.OverHead!DeleteView.RowCount, !=,0)
+	F.Intrinsic.Control.For(v.Local.iCount, v.DataView.OverHead!DeleteView.RowCount--, 0,-1)
+		F.Data.DataTable.DeleteRow("OverHead",v.DataView.OverHead!DeleteView(v.Local.iCount).DataTableIndex)
+	F.Intrinsic.Control.Next(v.Local.iCount)
+F.Intrinsic.Control.endif
+F.Data.DataView.Close("OverHead", "DeleteView")
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmd1_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(form_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmd1_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_4311_Mat_Ovhd.g2u$}$SKC$}$12/21/2016 12:53:01 PM$}$False
+Program.Sub.Comments.End
