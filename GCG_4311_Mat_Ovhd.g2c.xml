@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>190</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>190</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>190</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.ScreenSU.Start</string>
+        <string>Gui.Form..Create</string>
+        <string>Gui.Form..Caption("Material Overhead %")</string>
+        <string>Gui.Form..Size(4380,6825)</string>
+        <string>Gui.Form..MinX(0)</string>
+        <string>Gui.Form..MinY(0)</string>
+        <string>Gui.Form..Position(0,0)</string>
+        <string>Gui.Form..BackColor(-2147483633)</string>
+        <string>Gui.Form..MousePointer(0)</string>
+        <string>Gui.Form..Event(UnLoad,Form_UnLoad)</string>
+        <string>Gui.Form.lbl1.Create(Label,"Material Overhead %",True,1635,255,0,210,375,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.txtovh.Create(TextBox,"",True,1215,300,0,210,615,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtovh.Event(LostFocus,txtovh_LostFocus)</string>
+        <string>Gui.Form.lbl2.Create(Label,"Effective Date",True,1545,255,0,1965,375,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.dtpDate.Create(DatePicker)</string>
+        <string>Gui.Form.dtpDate.Size(1935,285)</string>
+        <string>Gui.Form.dtpDate.Position(1965,615)</string>
+        <string>Gui.Form.GsGCovhd.Create(GsGridControl)</string>
+        <string>Gui.Form.GsGCovhd.Size(3690,3735)</string>
+        <string>Gui.Form.GsGCovhd.Position(195,1800)</string>
+        <string>Gui.Form.cmdAdd.Create(Button)</string>
+        <string>Gui.Form.cmdAdd.Size(855,375)</string>
+        <string>Gui.Form.cmdAdd.Position(255,1155)</string>
+        <string>Gui.Form.cmdAdd.Caption("Add")</string>
+        <string>Gui.Form.cmdAdd.Event(Click,cmdAdd_Click)</string>
+        <string>Gui.Form.cmd1.Create(Button)</string>
+        <string>Gui.Form.cmd1.Size(855,375)</string>
+        <string>Gui.Form.cmd1.Position(255,5685)</string>
+        <string>Gui.Form.cmd1.Caption("Delete")</string>
+        <string>Gui.Form.cmd1.Event(Click,cmd1_Click)</string>
+        <string>Program.Sub.ScreenSU.End</string>
+        <string />
+        <string>Program.Sub.Preflight.Start</string>
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>'Created For Meco by Team SkyNet Passed Testing on 12/29/2016</string>
+        <string>'This works with a core Project.  The GAB will just save values to the Hybrid Table.</string>
+        <string>'Run from custom menu item.</string>
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.sSql.Declare(String)</string>
+        <string>F.ODBC.Connection!conx.OpenConnection(v.Ambient.PDSN, v.Ambient.PUser, v.Ambient.PPass)</string>
+        <string>v.Local.sSql.Set("Select Eff_Date, Percentage, Filler From MATL_OVHD_RATE")</string>
+        <string>F.Data.DataTable.CreateFromSQL("OverHead","conx", v.Local.sSql, True)</string>
+        <string>F.Data.DataTable.AddExpressionColumn("OverHead", "PercentString","String", "Percentage+'%'")</string>
+        <string>F.Data.DataTable.AddColumn("OverHead", "Delete", "Boolean",False)</string>
+        <string>F.Data.DataView.Create("OverHead", "SortView",22,,"Eff_Date Asc")</string>
+        <string>Gui.Form..Show</string>
+        <string>F.Intrinsic.Control.CallSub(gridstyle)</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(form_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.cmdAdd_Click.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("cmdAdd_Click_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>'Add the percentage and date to the DataTable.  the unload will update the Database.</string>
+        <string>v.Local..BulkDeclareString(sOverhead, sPercent,sDate,sFilter,sError)</string>
+        <string>v.Local.dDate.Declare(Date)</string>
+        <string>v.Local.iRow.Declare(Long)</string>
+        <string>v.Local.sDate.Set(v.Screen.Form!dtpDate.Value)</string>
+        <string>v.Local.dDate.Set(v.Screen.Form!dtpDate.Value)</string>
+        <string>F.Intrinsic.String.Build("Eff_Date = '{0} 12:00:00 AM'", v.Local.dDate, v.Local.sFilter)</string>
+        <string>v.Local.sPercent.Set(v.Screen.Form!txtovh.Text)</string>
+        <string>F.Intrinsic.String.Split(v.Local.sPercent, "%", v.Local.soverhead)</string>
+        <string>F.Data.DataView.Create("OverHead", "DateView",22,v.Local.sFilter,"Eff_Date Asc")</string>
+        <string>v.Local.iRow.Set(v.DataView.OverHead!DateView.RowCount)</string>
+        <string>F.Data.DataView.Close("OverHead", "DateView")</string>
+        <string>'Make sure the date does not already exist.</string>
+        <string>F.Intrinsic.Control.If(v.Local.iRow, !=,0)</string>
+        <string>	F.Intrinsic.UI.Msgbox("Duplicate Date", "Invalid Date")</string>
+        <string>	F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.endif</string>
+        <string>F.Data.DataTable.AddRow("OverHead", "Percentage", v.Local.sOverhead(0), "Eff_Date", v.Local.sDate)</string>
+        <string>Gui.Form.txtovh.Text("")</string>
+        <string>Gui.Form.txtovh.SetFocus</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("cmdAdd_Click_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.cmdAdd_Click.End</string>
+        <string />
+        <string>Program.Sub.Form_UnLoad.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Form_UnLoad_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>'Update the Database to mimic the Datatable. Close out of the program</string>
+        <string>v.Local..BulkDeclareString(sMap, sKeyFields,sError)</string>
+        <string>v.Local.sKeyFields.set("Percentage")</string>
+        <string>v.Local.sMap.set("Eff_Date@!@Eff_Date*!*Percentage@!@Percentage")</string>
+        <string>F.Data.DataTable.SaveToDB("OverHead","conx", "MATL_OVHD_RATE",v.Local.sKeyFields,7,v.Local.sMap)</string>
+        <string>F.ODBC.Connection!conx.Close</string>
+        <string>F.Intrinsic.Control.End</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("Form_UnLoad_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.End</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.Form_UnLoad.End</string>
+        <string />
+        <string>Program.Sub.txtovh_LostFocus.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("txtovh_LostFocus_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>'On lost focus check to make sure a number has been entered or that the box is blank</string>
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.sOverhead.Declare(String)</string>
+        <string>v.Local.bNumber.Declare(Boolean, True)</string>
+        <string>v.Local.sOverhead.Set(v.Screen.Form!txtovh.Text)</string>
+        <string>F.Intrinsic.String.Split(v.Local.sOverhead, "%", v.Local.sOverhead)</string>
+        <string>v.Local.sOverhead.RedimPreserve(0,1)</string>
+        <string>F.Intrinsic.Math.IsNumeric(v.Local.sOverhead(0), v.Local.bNumber)</string>
+        <string>F.Intrinsic.Control.If(v.Local.bNumber, =, False)</string>
+        <string>	F.Intrinsic.Control.If(v.Local.sOverhead.Trim, !=, "")</string>
+        <string>		F.Intrinsic.UI.Msgbox("The value entered is not Numeric!", "Invaild Value")</string>
+        <string>		Gui.Form.txtovh.Text("")</string>
+        <string>		Gui.Form.txtovh.SetFocus</string>
+        <string>	F.Intrinsic.Control.Endif</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("txtovh_LostFocus_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(form_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.txtovh_LostFocus.End</string>
+        <string />
+        <string>Program.Sub.GridStyle.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("GridStyle_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>'Set the Grid Properties</string>
+        <string>V.Local.sError.Declare(String)</string>
+        <string>Gui.Form.GsGCovhd.AddGridviewFromDataview("OverHeadView","OverHead","SortView")</string>
+        <string>Gui.Form.GsGCovhd.MainView("OverHeadView")</string>
+        <string>Gui.Form.GsGCovhd.SetGridViewProperty("OverHeadView","readonly",False)</string>
+        <string>gui.Form.GsGCovhd.SetGridviewProperty("OverHeadView", "Editable", True)</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","Eff_Date","readonly","True")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","Eff_Date","AllowEdit","False")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","PercentString","readonly","True")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","PercentString","AllowEdit","False")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","Delete","readonly",False)</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView","Delete","AllowEdit",True)</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "Eff_Date", "DisplayCustomDatetime", "d")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "Percentage", "Visible", "False")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "PercentString", "Caption", "Percentage")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "PercentString", "VisibleIndex", "0")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "Eff_Date", "Caption", "Date")</string>
+        <string>Gui.Form.GsGCovhd.SetColumnProperty("OverHeadView", "Filler", "Visible", "False")</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("GridStyle_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(form_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.GridStyle.End</string>
+        <string />
+        <string>Program.Sub.cmd1_Click.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("cmd1_Click_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string>'Delete the selected rows from the Grid.  Unload will update the Database.</string>
+        <string>v.Local..BulkDeclareString(sFilter,sSql,sError)</string>
+        <string>v.Local.iCount.Declare(Long)</string>
+        <string>v.Local.sFilter.Set("Delete = 'True'")</string>
+        <string>F.Data.DataView.Create("OverHead", "DeleteView",22,v.Local.sFilter,"Eff_Date Asc")</string>
+        <string>F.Intrinsic.Control.If(v.DataView.OverHead!DeleteView.RowCount, !=,0)</string>
+        <string>	F.Intrinsic.Control.For(v.Local.iCount, v.DataView.OverHead!DeleteView.RowCount--, 0,-1)</string>
+        <string>		F.Data.DataTable.DeleteRow("OverHead",v.DataView.OverHead!DeleteView(v.Local.iCount).DataTableIndex)</string>
+        <string>	F.Intrinsic.Control.Next(v.Local.iCount)</string>
+        <string>F.Intrinsic.Control.endif</string>
+        <string>F.Data.DataView.Close("OverHead", "DeleteView")</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string>F.Intrinsic.Control.Label("cmd1_Click_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4311_Mat_Ovhd.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(form_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string>Program.Sub.cmd1_Click.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$GCG_4311_Mat_Ovhd.g2u$}$SKC$}$12/21/2016 12:53:01 PM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>30</Y>
+        </EndPoint>
+        <Text>Program.Sub.ScreenSU</Text>
+        <DisplayText>Program.Sub.ScreenSU</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>32</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>33</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>35</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>58</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>60</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>89</Y>
+        </EndPoint>
+        <Text>Program.Sub.cmdAdd_Click</Text>
+        <DisplayText>Program.Sub.cmdAdd_Click</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>91</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>108</Y>
+        </EndPoint>
+        <Text>Program.Sub.Form_UnLoad</Text>
+        <DisplayText>Program.Sub.Form_UnLoad</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>110</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>135</Y>
+        </EndPoint>
+        <Text>Program.Sub.txtovh_LostFocus</Text>
+        <DisplayText>Program.Sub.txtovh_LostFocus</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>137</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>165</Y>
+        </EndPoint>
+        <Text>Program.Sub.GridStyle</Text>
+        <DisplayText>Program.Sub.GridStyle</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>167</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>188</Y>
+        </EndPoint>
+        <Text>Program.Sub.cmd1_Click</Text>
+        <DisplayText>Program.Sub.cmd1_Click</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>190</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>192</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
